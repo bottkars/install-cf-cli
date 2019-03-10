@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.1
+.VERSION 1.2
 
 .GUID aa17cffe-c071-4ced-8c48-5e33793c4a84
 
@@ -35,7 +35,7 @@
 <# 
 
 .DESCRIPTION 
- Download Pivotal Operations Manager CLI Releases from GitHub 
+ Download and Install Cloudfoundry CF CLI Releases from GitHub using Dynamic Parameters
 
 #> 
 # This helper script downloads an available om Version
