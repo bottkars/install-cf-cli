@@ -1,11 +1,11 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0
+.VERSION 1.1
 
 .GUID aa17cffe-c071-4ced-8c48-5e33793c4a84
 
-.AUTHOR Kbott@pivotal.io
+.AUTHOR kbott@pivotal.io
 
 .COMPANYNAME
 
@@ -159,7 +159,7 @@ Process {
  
     # Check to see if we are currently running "as Administrator"
     if ($OldShell.IsPresent -or !$myWindowsPrincipal.IsInRole($adminRole)) {
-        Write-Host "We will Start in a new Admin Window to Install"
+        Write-Host "Installer will Start in a new Admin Window to Install"
         $arguments = "-DownloadDir $DownloadDir -CLIRelease $CLIRelease"
         $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell"
         $newProcess.Arguments = "$PSScriptRoot/$($myinvocation.MyCommand) $arguments" 
