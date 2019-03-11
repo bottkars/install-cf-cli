@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.2
+.VERSION 1.3
 
 .GUID aa17cffe-c071-4ced-8c48-5e33793c4a84
 
@@ -53,6 +53,7 @@ param(
 )
 DynamicParam {
     function get-releases {
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $request = Invoke-WebRequest -UseBasicParsing -Uri https://github.com/cloudfoundry/cli/releases
         $windowsRelease = $request.links | where href -Match .zip
         $releases = $windowsRelease | ForEach-Object {($_.href -split "/")[-1] -replace ".zip" -replace "v"}
