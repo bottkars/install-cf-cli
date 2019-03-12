@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.5
+.VERSION 1.6
 
 .GUID aa17cffe-c071-4ced-8c48-5e33793c4a84
 
@@ -182,10 +182,11 @@ Process {
     
 }
 end {
+    <#
     $object = New-Object psobject
     $object  | Add-Member -MemberType NoteProperty -Name Path -Value $(get-comand cf.exe)
     $object  | Add-Member -MemberType NoteProperty -Name Version -Value $(cf version)
-    Write-Output $object
+    Write-Output $object #>
 }
 
 
