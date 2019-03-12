@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.3
+.VERSION 1.4
 
 .GUID aa17cffe-c071-4ced-8c48-5e33793c4a84
 
@@ -153,6 +153,7 @@ Begin {
 }
 
 Process {
+<# this is the runas admin, blocks us from automation ;-)
     $myWindowsID = [System.Security.Principal.WindowsIdentity]::GetCurrent()
     $myWindowsPrincipal = new-object System.Security.Principal.WindowsPrincipal($myWindowsID)
 
@@ -169,7 +170,7 @@ Process {
         [System.Diagnostics.Process]::Start($newProcess) 
         exit
     }
-    [switch]$OldShell = $true
+    [switch]$OldShell = $true #>
     write-host "Downloading CF CLI Release $CLIRelease from packages.cloudfoundry.org"
     New-Item -ItemType Directory -Path $DownloadDir -Force | Out-Null
     $Outfile = "$DownloadDir/$($CLIRelease).zip"
