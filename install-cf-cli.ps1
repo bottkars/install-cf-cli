@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.6
+.VERSION 1.7
 
 .GUID aa17cffe-c071-4ced-8c48-5e33793c4a84
 
@@ -179,7 +179,7 @@ Process {
     Write-Host "Expanding $Outfile" -NoNewline
     Expand-Archive $Outfile -DestinationPath $DownloadDir -Force
     Start-Process -FilePath "$HOME/Downloads/cf_installer.exe" -ArgumentList "/SILENT /SP-" -PassThru
-    
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 }
 end {
     <#
